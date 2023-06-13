@@ -1,1 +1,6 @@
-<template> <div class="min-h-screen w-full"> Hellow Wolrd </div> </template>
+<template>
+	<AppRoot>
+		<AppDrawer>Drawer</AppDrawer>
+		<AppContainer> <AppToolbar title="Toolbar"></AppToolbar></AppContainer
+	></AppRoot>
+</template>

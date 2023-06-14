@@ -8,11 +8,11 @@
 					? $emit('update:isShown', false)
 					: $emit('update:isShown', isDrawerShown)
 			"
-			class="absolute z-[80] md:z-0 overflow-hidden md:relative h-full md:w-[250px] w-full bg-opacity-30 bg-black"
+			class="fixed z-[80] top-0 left-0 md:z-0 overflow-hidden md:relative h-full md:w-[250px] w-full bg-opacity-30 bg-black"
 		>
 			<div
 				ref="drawer"
-				class="h-full overflow-hidden w-[250px] shadow-md md:shadow bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
+				class="fixed top-0 left-0 box-border h-full overflow-hidden w-[250px] shadow-md md:shadow bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
 			>
 				<AppToolbar v-if="props.title" :title="props.title" />
 				<slot />
@@ -35,9 +35,8 @@
 	onMounted(() => {});
 </script>
 <style scoped>
-	.slide-fade-enter-active {
-		transition-delay: 0.25s;
-
+	.slide-side-enter-active,
+	.slide-side-leave-active {
 		transition: all 0.3s ease-out;
 	}
 
@@ -47,7 +46,6 @@
 
 	.slide-fade-enter-from,
 	.slide-fade-leave-to {
-		transform: translateX(-250px);
-		opacity: 0;
+		transform: translateX(-100%);
 	}
 </style>

@@ -4,7 +4,7 @@
 			v-show="isDrawerShown()"
 			ref="overlay"
 			@click="$emit('update:isShown', false)"
-			class="absolute md:relative h-full w-full md:w-fit bg-opacity-30 bg-black"
+			class="absolute z-[80] md:relative h-full w-full md:w-fit bg-opacity-30 bg-black"
 		>
 			<div
 				ref="drawer"

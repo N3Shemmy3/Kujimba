@@ -7,4 +7,8 @@ export default defineNuxtConfig({
 		"@nuxtjs/supabase",
 		"@pinia/nuxt",
 	],
+
+	plugins: [
+		"@/plugins/vRipple.js", // only in client side
+	],
 });

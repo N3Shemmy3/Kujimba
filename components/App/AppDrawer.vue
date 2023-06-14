@@ -1,16 +1,49 @@
 <template>
-	<div ref="overlay" class="absolute md:relative h-screen w-screen md:w-fit">
+	<Transition name="slide-fade">
 		<div
-			ref="drawer"
-			class="h- w-[250px] shadow-md bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
+			v-show="isDrawerShown()"
+			ref="overlay"
+			@click="$emit('update:isShown', false)"
+			class="absolute md:relative h-full w-full md:w-fit bg-opacity-30 bg-black"
 		>
-			<AppToolbar v-if="props.title" :title="props.title" />
-			<slot />
+			<div
+				ref="drawer"
+				class="h-full w-[250px] shadow-md md:shadow bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
+			>
+				<AppToolbar v-if="props.title" :title="props.title" />
+				<slot />
+			</div>
 		</div>
-	</div>
+	</Transition>
 </template>
 <script setup>
 	const props = defineProps({
 		title: String,
+		isShown: Boolean,
 	});
+	const emit = defineEmits(["update:isShown"]);
+	const overlay = ref();
+	const drawer = ref();
+
+	function isDrawerShown() {
+		return window.innerWidth > 600 ? true : props.isShown;
+	}
+	onMounted(() => {});
 </script>
+<style scoped>
+	.slide-fade-enter-active {
+		transition-delay: 0.25s;
+
+		transition: all 0.3s ease-out;
+	}
+
+	.slide-fade-leave-active {
+		transition: right 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+	}
+
+	.slide-fade-enter-from,
+	.slide-fade-leave-to {
+		transform: translateX(-250px);
+		opacity: 0;
+	}
+</style>

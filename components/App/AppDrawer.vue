@@ -3,8 +3,12 @@
 		<div
 			v-show="isDrawerShown()"
 			ref="overlay"
-			@click="$emit('update:isShown', false)"
-			class="absolute z-[80] md:z-0 top-0 overflow-hidden md:relative h-full md:w-[250px] w-full bg-opacity-30 bg-black"
+			@click="
+				$event.target == overlay
+					? $emit('update:isShown', false)
+					: $emit('update:isShown', isDrawerShown)
+			"
+			class="absolute z-[80] md:z-0 overflow-hidden md:relative h-full md:w-[250px] w-full bg-opacity-30 bg-black"
 		>
 			<div
 				ref="drawer"

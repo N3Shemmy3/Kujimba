@@ -4,11 +4,11 @@
 			v-show="isDrawerShown()"
 			ref="overlay"
 			@click="$emit('update:isShown', false)"
-			class="absolute z-[80] md:relative h-full w-full md:w-fit bg-opacity-30 bg-black"
+			class="absolute z-[80] md:z-0 top-0 overflow-hidden md:relative h-full md:w-[250px] w-full bg-opacity-30 bg-black"
 		>
 			<div
 				ref="drawer"
-				class="h-full w-[250px] shadow-md md:shadow bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
+				class="h-full overflow-hidden w-[250px] shadow-md md:shadow bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
 			>
 				<AppToolbar v-if="props.title" :title="props.title" />
 				<slot />

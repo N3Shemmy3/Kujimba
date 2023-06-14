@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="flex bg-colorBackgroundLight text-colorOnBackgroundLight dark:bg-colorBackgroundDark dark:text-colorOnBackgroundDark"
+		class="relative ooverflow-hidden flex bg-colorBackgroundLight text-colorOnBackgroundLight dark:bg-colorBackgroundDark dark:text-colorOnBackgroundDark"
 	>
 		<div class="flex mx-auto w-full md:max-w-screen-2xl">
 			<slot />

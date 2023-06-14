@@ -1,3 +1,3 @@
 <template
-	><div class="max-h-full w-full"><slot /></div
+	><div class="h-full w-full overflow-hidden p-4 md:p8"><slot /></div
 ></template>

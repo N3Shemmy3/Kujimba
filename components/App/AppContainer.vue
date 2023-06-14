@@ -1,3 +1,3 @@
 <template>
-	<div class="w-full h-full"><slot /></div>
+	<div class="flex flex-grow h-full"><slot /></div>
 </template>

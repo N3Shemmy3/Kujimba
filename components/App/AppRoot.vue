@@ -1,9 +1,22 @@
 <template>
 	<div
-		class="relative max-h-fscreen overflow-hidden flex bg-colorBackgroundLight text-colorOnBackgroundLight dark:bg-colorBackgroundDark dark:text-colorOnBackgroundDark"
+		class="relative h-full flex bg-colorBackgroundLight text-colorOnBackgroundLight dark:bg-colorBackgroundDark dark:text-colorOnBackgroundDark"
 	>
-		<div class="flex mx-auto w-full md:max-w-screen-2xl">
+		<AppSplashScreen v-if="showSplashScreen" />
+		<div
+			v-if="!showSplashScreen"
+			class="flex mx-auto w-full md:max-w-screen-2xl"
+		>
 			<slot />
 		</div>
 	</div>
 </template>
+<script setup>
+	const showSplashScreen = ref(true);
+
+	onMounted(() => {
+		setTimeout(() => {
+			showSplashScreen.value = false;
+		}, 2000);
+	});
+</script>

@@ -1,7 +1,7 @@
 <template>
 	<Transition name="slide-fade">
 		<div
-			v-show="isDrawerShown()"
+			v-show="isDrawerShown"
 			ref="overlay"
 			@click="
 				$event.target == overlay
@@ -12,7 +12,7 @@
 		>
 			<div
 				ref="drawer"
-				class="fixed top-0 left-0 box-border h-full overflow-hidden w-[250px] shadow-md md:shadow bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
+				class="fixed h-full overflow-hidden w-[250px] shadow-md md:shadow bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
 			>
 				<AppToolbar v-if="props.title" :title="props.title" />
 				<slot />
@@ -29,9 +29,9 @@
 	const overlay = ref();
 	const drawer = ref();
 
-	function isDrawerShown() {
+	const isDrawerShown = computed(() => {
 		return window.innerWidth > 600 ? true : props.isShown;
-	}
+	});
 	onMounted(() => {});
 </script>
 <style scoped>

@@ -1,6 +1,7 @@
 <template>
 	<AppRoot>
 		<AppDrawer
+			v-if="showDrawer"
 			:isShown="isDrawerVisible"
 			@update:isShown="(state) => (isDrawerVisible = state)"
 		>
@@ -12,9 +13,9 @@
 				<h1>{{ item.name }}</h1>
 			</li>
 		</AppDrawer>
-		<AppContainer style="padding-top: 56px" class="max-w-screen-md">
+		<AppContainer style="padding-top: 56px" class="max-w-screen-md h-screen">
 			<AppToolbar
-				title="Toolbar"
+				:title="$router.currentRoute.value.name"
 				@onClickMenuItem="(name) => onClickMenuItem(name)"
 			/>
 			<NuxtLayout>
@@ -25,6 +26,7 @@
 	</AppRoot>
 </template>
 <script setup lang="ts">
+	const showDrawer = ref(true);
 	const isDrawerVisible = ref(false);
 	const menuItems = [
 		{
@@ -94,6 +96,14 @@
 				break;
 		}
 	}
+	onBeforeRouteUpdate((from, to) => {});
+	onUpdated(() => {
+		if (!isTabletMode) return;
+		showDrawer.value = false;
+	});
+	const isTabletMode = computed(() => {
+		return window.innerWidth > 600;
+	});
 </script>
 <style scoped>
 	html,
@@ -101,5 +111,6 @@
 		@apply bg-colorBackgroundDark;
 		height: 100vh;
 		width: 100%;
+		user-select: none;
 	}
 </style>

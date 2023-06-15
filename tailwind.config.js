@@ -35,7 +35,7 @@ module.exports = {
 				colorErorContainerLight: "#ffdad6",
 				colorOnErrorLight: "#ffffff",
 				colorOnErrorContainerLight: "#410002",
-				colorOutlineLight: "#837377",
+				colorOutlineLight: "#eeeeee",
 				/** Dark Theme */
 				colorPrimaryDark: "#ffb0c9",
 				colorOnPrimaryDark: "#5e1134",
@@ -53,7 +53,7 @@ module.exports = {
 				colorErorContainerDark: "#93000a",
 				colorOnErrorDark: "#690005",
 				colorOnErrorContainerDark: "#ffdad6",
-				colorOutlineDark: "#9e8c90",
+				colorOutlineDark: "#3c4043",
 			},
 		},
 	},

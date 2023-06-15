@@ -1,14 +1,11 @@
 <template>
-	<div
-		v-if="props.icon"
-		class="flex cursor-pointer noSelect h-12 w-12 rounded-full"
-	>
-		<Icon class="m-auto" :name="props.icon" size="24px" />
+	<div v-if="icon" class="flex cursor-pointer noSelect h-12 w-12 rounded-full">
+		<Icon class="m-auto" :name="icon" size="24px" />
 	</div>
 </template>
 
 <script setup lang="ts">
-	const props = defineProps({
+	defineProps({
 		icon: String,
 		color: String,
 	});

@@ -12,7 +12,7 @@
 		>
 			<div
 				ref="drawer"
-				class="fixed h-full overflow-hidden w-[250px] shadow-md md:shadow bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
+				class="fixed h-full overflow-hidden w-[250px] shadow-md md:shadow-none bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
 			>
 				<AppToolbar v-if="props.title" :title="props.title" />
 				<slot />

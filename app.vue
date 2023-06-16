@@ -13,7 +13,7 @@
 				<h1>{{ item.name }}</h1>
 			</li>
 		</AppDrawer>
-		<AppContainer style="padding-top: 56px" class="h-screen">
+		<AppContainer style="padding-top: 56px">
 			<AppToolbar
 				:title="$route.meta.title"
 				@onClickMenuItem="(name) => onClickMenuItem(name)"
@@ -65,26 +65,6 @@
 			name: "Bench",
 			icon: "bench",
 		},
-		{
-			name: "Stationary bicycle",
-			icon: "stationary-bicycle",
-		},
-		{
-			name: "Rowing machine",
-			icon: "rowing-machine",
-		},
-		{
-			name: "Power rack",
-			icon: "power-rack",
-		},
-		{
-			name: "Smith machine",
-			icon: "smith-machine",
-		},
-		{
-			name: "Suspension training",
-			icon: "suspension-training",
-		},
 	];
 	function onClickMenuItem(name: String) {
 		switch (name) {
@@ -92,20 +72,18 @@
 				isDrawerVisible.value = !isDrawerVisible.value;
 				break;
 
+			case "backIcon":
+				if (router.getRoutes.length <= 1) break;
 			default:
 				break;
 		}
 	}
-	onBeforeRouteUpdate((from, to) => {});
 	onUpdated(() => {
 		//if (!isTabletMode) return;
 		showDrawer.value = false;
 	});
 	const isTabletMode = computed(() => {
 		return window.innerWidth > 600;
-	});
-	definePageMeta({
-		title: "Kujimba",
 	});
 	useSeoMeta({
 		ogTitle: "Kujimba",

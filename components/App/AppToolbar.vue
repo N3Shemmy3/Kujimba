@@ -5,13 +5,15 @@
 		<IconButton
 			v-if="$router.getRoutes.length <= 1"
 			:icon="isTabletMode ? 'ic:round-arrow-back' : 'ic:outline-menu'"
-			@click="$emit('onClickMenuItem', 'navIcon')"
+			@click="
+				if ($router.getRoutes.length <= 1) {
+					$emit('onClickMenuItem', 'navIcon');
+				} else {
+					$router.go(-1);
+				}
+			"
 		/>
-		<IconButton
-			v-else
-			icon="ic:round-arrow-back"
-			@click="$emit('onClickMenuItem', 'backIcon')"
-		/>
+		<IconButton v-else icon="ic:round-arrow-back" @click="$router.back()" />
 		<h1 class="text-lg">{{ props.title }}</h1>
 	</div>
 </template>

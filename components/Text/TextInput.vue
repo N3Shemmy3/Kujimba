@@ -12,7 +12,7 @@
 		/>
 		<label
 			:for="label"
-			class="absolute top-0 text-lg bg-colorBackgroundLight dark:bg-colorBackgroundDark mx-4 py-4 -z-1 duration-300 origin-0"
+			class="absolute label top-0 text-lg bg-colorBackgroundLight dark:bg-colorBackgroundDark mx-4 py-4 -z-1 duration-300 origin-0"
 			>{{ label }}</label
 		>
 	</div>
@@ -31,5 +31,8 @@
 	.outline input:focus-within ~ label,
 	.outline input:not(:placeholder-shown) ~ label {
 		@apply transform scale-75 -translate-y-4 z-0 ml-3 px-1 py-0;
+	}
+	.label {
+		pointer-events: none;
 	}
 </style>

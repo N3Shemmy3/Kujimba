@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="relative h-full flex bg-colorBackgroundLight text-colorOnBackgroundLight dark:bg-colorBackgroundDark dark:text-colorOnBackgroundDark"
+		class="relative h-full flex select-none bg-colorBackgroundLight text-colorOnBackgroundLight dark:bg-colorBackgroundDark dark:text-colorOnBackgroundDark"
 	>
 		<AppSplashScreen v-if="showSplashScreen" />
 		<div

@@ -1,7 +1,7 @@
 <template>
 	<AppRoot>
 		<AppDrawer
-			v-if="showDrawer"
+			v-if="true"
 			:isShown="isDrawerVisible"
 			@update:isShown="(state) => (isDrawerVisible = state)"
 		>
@@ -13,13 +13,13 @@
 				<h1>{{ item.name }}</h1>
 			</li>
 		</AppDrawer>
-		<AppContainer style="padding-top: 56px" class="max-w-screen-md h-screen">
+		<AppContainer style="padding-top: 56px" class="h-screen">
 			<AppToolbar
-				:title="$router.currentRoute.value.name"
+				:title="$route.meta.title"
 				@onClickMenuItem="(name) => onClickMenuItem(name)"
 			/>
 			<NuxtLayout>
-				<NuxtLoadingIndicator color="#984062" />
+				<NuxtLoadingIndicator color="#376a1f" />
 				<NuxtPage />
 			</NuxtLayout>
 		</AppContainer>
@@ -98,11 +98,17 @@
 	}
 	onBeforeRouteUpdate((from, to) => {});
 	onUpdated(() => {
-		if (!isTabletMode) return;
+		//if (!isTabletMode) return;
 		showDrawer.value = false;
 	});
 	const isTabletMode = computed(() => {
 		return window.innerWidth > 600;
+	});
+	definePageMeta({
+		title: "Kujimba",
+	});
+	useSeoMeta({
+		ogTitle: "Kujimba",
 	});
 </script>
 <style scoped>

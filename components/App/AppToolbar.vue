@@ -4,7 +4,7 @@
 	>
 		<IconButton
 			v-if="$router.getRoutes.length <= 1"
-			:icon="isTabletMode ? '' : 'ic:outline-menu'"
+			:icon="isTabletMode ? 'ic:round-arrow-back' : 'ic:outline-menu'"
 			@click="$emit('onClickMenuItem', 'navIcon')"
 		/>
 		<IconButton
@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-	import IconButton from "../Button/IconButton.vue";
+	import IconButton from "../Icon/IconButton.vue";
 
 	const router = useRouter();
 	const props = defineProps({

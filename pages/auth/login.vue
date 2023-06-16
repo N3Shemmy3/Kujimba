@@ -1,11 +1,11 @@
 <template>
-	<AppLayout class="md:flex">
-		<div class="space-y-8 w-full">
-			<div class="px-3">
+	<AppLayout>
+		<div class="space-y-4 sm:max-w-[30vw] mx-auto">
+			<div class="px-3 pb-4">
 				<h1 class="text-3xl">Welcome back</h1>
 				<p class="text-base">Login to continue</p>
 			</div>
-			<form class="space-y-8">
+			<form class="space-y-8 pb-4" spellcheck="false">
 				<TextInput
 					label="Email"
 					type="email"
@@ -19,10 +19,13 @@
 					v-model="credentials.password"
 				/>
 			</form>
-			<ButtonFilledButtton type="submit" class="w-full h-14" text="Login" />
-		</div>
-		<div v-if="isTabletMode" class="flex w-full">
-			<AppIcon size="20vh" class="m-auto animate-pulse animate-ping" />
+			<FilledButton type="submit" class="w-full h-12" text="Sign in" />
+			<OutlinedButton
+				type="submit"
+				class="w-full h-12"
+				icon="logos:google-icon"
+				text="Sign in with Google"
+			/>
 		</div>
 	</AppLayout>
 </template>
@@ -48,5 +51,8 @@
 	});
 	const isTabletMode = computed(() => {
 		return window.innerWidth > 600;
+	});
+	definePageMeta({
+		title: "Login",
 	});
 </script>

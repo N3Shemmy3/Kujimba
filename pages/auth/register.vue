@@ -30,4 +30,8 @@
 		}
 		alert("Open the email we sent you to verify your account!");
 	}
+
+	definePageMeta({
+		title: "Kujimba",
+	});
 </script>

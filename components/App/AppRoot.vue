@@ -2,9 +2,9 @@
 	<div
 		class="relative h-full flex select-none bg-colorBackgroundLight text-colorOnBackgroundLight dark:bg-colorBackgroundDark dark:text-colorOnBackgroundDark"
 	>
-		<AppSplashScreen v-if="showSplashScreen" />
+		<AppSplashScreen v-if="false" />
 		<div
-			v-if="!showSplashScreen"
+			v-else="!showSplashScreen"
 			class="flex mx-auto w-full md:max-w-screen-2xl"
 		>
 			<slot />

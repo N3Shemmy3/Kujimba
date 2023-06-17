@@ -37,7 +37,7 @@ module.exports = {
 				colorErrorContainerLight: "#F9DEDC",
 				colorOnErrorContainerLight: "#410E0B",
 				colorOutlineLight: "#79747E",
-				colorBackgroundLight: "#fdfdf5",
+				colorBackgroundLight: "#ffffff",
 				colorOnBackgroundLight: "#1a1c17",
 				colorSurfaceLight: "#fdfdf5",
 				colorOnSurfaceLight: "#1a1c17",

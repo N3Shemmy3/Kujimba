@@ -1,5 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+	app: {
+		buildAssetsDir: "/_nuxt/",
+		head: {
+			link: [
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "https://api.iconify.design/map:gym.svg?color=%376a1f",
+				},
+			],
+		},
+	},
 	devtools: { enabled: true },
 	components: [
 		{
@@ -14,6 +26,7 @@ export default defineNuxtConfig({
 		"@pinia/nuxt",
 	],
 
+	css: ["@/assets/css/tailwind.css", "@/assets/fonts/product.css"],
 	plugins: [
 		"@/plugins/vRipple.js", // only in client side
 	],

@@ -12,10 +12,29 @@
 		>
 			<div
 				ref="drawer"
-				class="fixed h-full overflow-hidden w-[250px] shadow-md md:shadow-none bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
+				class="fixed h-full pe-4 w-[250px] overflow-hidden shadow-md md:shadow-none bg-colorSurfaceLight text-colorOnSurfaceLight dark:bg-colorSurfaceDark dark:text-colorOnSurfaceDark"
 			>
-				<AppToolbar v-if="props.title" :title="props.title" />
-				<slot />
+				<div ref="header" class="p-4">
+					<h6 class="text-lg font-semibold">{{ props.title }}</h6>
+				</div>
+				<slot>
+					<button
+						v-for="item in menuItems"
+						v-Ripple
+						@click="$router.push(item.route)"
+						class="flex group transition-all duration-300 w-full min-h-[48px] p-3 items-center py-2 space-x-4 rounded-e-full hover:bg-colorPrimarycontainerLight dark:hover:bg-colorPrimarycontainerDark hover:bg-opacity-30 dark:hover:bg-opacity-30 active:bg-opacity-90"
+					>
+						<Icon
+							:name="item.icon"
+							size="24px"
+							class="icon group-active:text-colorOnPrimarycontainerLight dark:group-active:text-colorOnPrimarycontainerDark"
+						/>
+						<h1
+							class="icon group-hover:font-semibold transition duration-300 group-active:text-colorOnPrimarycontainerLight dark:group-active:text-colorOnPrimarycontainerDark"
+							>{{ item.name }}</h1
+						>
+					</button>
+				</slot>
 			</div>
 		</div>
 	</Transition>
@@ -26,6 +45,34 @@
 		isShown: Boolean,
 	});
 	const emit = defineEmits(["update:isShown"]);
+	const menuItems = [
+		{
+			icon: "ic:outline-home",
+			name: "Home",
+			route: "/",
+		},
+		{
+			icon: "ic:outline-settings",
+			name: "Dumbbell",
+			route: "",
+		},
+		{
+			icon: "ic:outline-settings",
+			name: "Barbell",
+			route: "",
+		},
+		{
+			icon: "ic:outline-settings",
+			name: "Stability ball",
+			route: "",
+		},
+		{
+			icon: "ic:outline-settings",
+			name: "Settings",
+			route: "/settings",
+		},
+	];
+
 	const overlay = ref();
 	const drawer = ref();
 

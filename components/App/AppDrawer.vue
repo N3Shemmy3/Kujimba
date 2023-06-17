@@ -17,27 +17,39 @@
 				<div ref="header" class="p-4">
 					<h6 class="text-lg font-semibold">{{ props.title }}</h6>
 				</div>
-				<slot>
-					<div
-						v-for="item in menuItems"
-						v-Ripple
-						@click="$router.push(item.route)"
-						:class="
-							item.name == 'Home'
-								? 'bg-colorPrimaryContainerLight dark:bg-colorPrimaryContainerDark'
-								: 'bg-transparent'
-						"
-						class="flex group transition-all duration-300 w-full min-h-[48px] p-3 items-center py-2 space-x-4 rounded-e-full hover:bg-colorPrimaryContainerLight hover:dark:bg-colorPrimaryContainerDark hover:bg-opacity-30 dark:hover:bg-opacity-30"
-					>
-						<Icon
-							:name="item.icon"
-							size="24px"
-							class="icon group-active:text-colorOnPrimaryContainerLight dark:group-active:text-colorOnPrimarycontainerDark"
-						/>
-						<h1
-							class="icon group-hover:font-semibold transition duration-300 group-active:text-colorOnPrimaryContainerLight dark:group-active:text-colorOnPrimaryContainerDark"
-							>{{ item.name }}</h1
+				<slot class="space-y-1">
+					<div class="space-y-1">
+						<div
+							v-for="item in menuItems"
+							v-Ripple
+							@click="$router.push(item.route)"
+							:class="
+								item.name == 'Home'
+									? 'bg-colorPrimaryContainerLight dark:bg-colorPrimaryContainerDark'
+									: 'bg-transparent'
+							"
+							class="flex group cursor-pointer transition-all duration-300 w-full min-h-[48px] p-3 items-center py-2 space-x-4 rounded-e-full hover:bg-colorPrimaryContainerLight hover:dark:bg-colorPrimaryContainerDark hover:bg-opacity-30 dark:hover:bg-opacity-30"
 						>
+							<Icon
+								:name="item.icon"
+								size="24px"
+								:class="
+									item.name == 'Home'
+										? 'text-colorOnPrimaryContainerLight dark:text-colorOnPrimaryContainerDark'
+										: ''
+								"
+								class="icon group-hover:text-colorOnPrimaryContainerLight dark:group-hover:text-colorOnPrimaryContainerDark"
+							/>
+							<h1
+								:class="
+									item.name == 'Home'
+										? 'font-semibold text-colorOnPrimaryContainerLight dark:text-colorOnPrimaryContainerDark'
+										: ''
+								"
+								class="icon group-hover:font-semibold transition duration-300 group-hover:text-colorOnPrimaryContainerLight dark:group-hover:text-colorOnPrimaryContainerDark"
+								>{{ item.name }}</h1
+							>
+						</div>
 					</div>
 				</slot>
 			</div>

@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 				{
 					rel: "icon",
 					type: "image/png",
-					href: "https://api.iconify.design/map:gym.svg?color=%376a1f",
+					href: "https://api.iconify.design/map:gym.svg?color=%23888888",
 				},
 			],
 		},

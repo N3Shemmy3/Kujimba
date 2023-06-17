@@ -22,15 +22,15 @@
 						v-for="item in menuItems"
 						v-Ripple
 						@click="$router.push(item.route)"
-						class="flex group transition-all duration-300 w-full min-h-[48px] p-3 items-center py-2 space-x-4 rounded-e-full hover:bg-colorPrimarycontainerLight dark:hover:bg-colorPrimarycontainerDark hover:bg-opacity-30 dark:hover:bg-opacity-30 active:bg-opacity-90"
+						class="flex group transition-all duration-300 w-full min-h-[48px] p-3 items-center py-2 space-x-4 rounded-e-full hover:bg-colorPrimaryContainerLight dark:hover:bg-colorPrimarycontainerDark hover:bg-opacity-30 dark:hover:bg-opacity-30 active:bg-opacity-90"
 					>
 						<Icon
 							:name="item.icon"
 							size="24px"
-							class="icon group-active:text-colorOnPrimarycontainerLight dark:group-active:text-colorOnPrimarycontainerDark"
+							class="icon group-active:text-colorOnPrimaryContainerLight dark:group-active:text-colorOnPrimarycontainerDark"
 						/>
 						<h1
-							class="icon group-hover:font-semibold transition duration-300 group-active:text-colorOnPrimarycontainerLight dark:group-active:text-colorOnPrimarycontainerDark"
+							class="icon group-hover:font-semibold transition duration-300 group-active:text-colorOnPrimaryContainerLight dark:group-active:text-colorOnPrimarycontainerDark"
 							>{{ item.name }}</h1
 						>
 					</button>
